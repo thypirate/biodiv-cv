@@ -1,0 +1,26 @@
+[project]
+name = "cv-biodiv-open-data-api"
+version = "0.1.0"
+description = "Stateless open API aggregating biodiversity data for Cape Verde"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cachetools>=7.1.7",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "pydantic-settings>=2.15.0",
+    "uvicorn>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"

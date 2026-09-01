@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cape Verde Biodiversity — Open Data Portal</title>
+<style>
+  :root {
+    --bg:#f7f8f6; --card:#fff; --ink:#12271f; --muted:#5c7268;
+    --line:#dfe6e1; --accent:#0f7b5f; --warn:#b4531a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0e1512; --card:#151f1b; --ink:#e8f0ec; --muted:#93a89f;
+            --line:#243029; --accent:#4fd1a5; --warn:#e88b4d; }
+  }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif }
+  header { padding:2.5rem 1.25rem 1.5rem; max-width:1080px; margin:0 auto }
+  h1 { margin:0 0 .35rem; font-size:1.9rem; letter-spacing:-.02em }
+  .sub { color:var(--muted); margin:0 }
+  .sub a { color:var(--accent) }
+  main { max-width:1080px; margin:0 auto; padding:0 1.25rem 4rem;
+         display:grid; gap:1.25rem }
+  section { background:var(--card); border:1px solid var(--line);
+            border-radius:14px; padding:1.15rem 1.25rem }
+  h2 { margin:0 0 .85rem; font-size:1rem; text-transform:uppercase;
+       letter-spacing:.08em; color:var(--muted); font-weight:600 }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem }
+  .stat b { display:block; font-size:1.7rem; font-variant-numeric:tabular-nums }
+  .stat span { color:var(--muted); font-size:.85rem }
+  ul { list-style:none; margin:0; padding:0; display:grid; gap:.6rem }
+  li { display:flex; gap:.75rem; align-items:center; padding-bottom:.6rem;
+       border-bottom:1px solid var(--line) }
+  li:last-child { border-bottom:0; padding-bottom:0 }
+  img { width:52px; height:52px; border-radius:8px; object-fit:cover; flex:none;
+        background:var(--line) }
+  .name { font-weight:600 }
+  .meta { color:var(--muted); font-size:.85rem }
+  .grow { flex:1; min-width:0 }
+  .grow > * { overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .tag { font-size:.72rem; font-weight:700; padding:.15rem .45rem; border-radius:5px;
+         border:1px solid var(--line); color:var(--muted); flex:none }
+  .tag.threatened { color:var(--warn); border-color:var(--warn) }
+  a { color:inherit }
+  .loading { color:var(--muted) }
+  footer { max-width:1080px; margin:0 auto; padding:0 1.25rem 3rem;
+           color:var(--muted); font-size:.85rem }
+</style>
+</head>
+<body>
+<header>
+  <h1>Cape Verde Biodiversity</h1>
+  <p class="sub">A stateless open-data portal over
+    <a href="/docs">the public API</a> — nothing is stored, everything is
+    aggregated live from GBIF, iNaturalist and Wikipedia.</p>
+</header>
+
+<main>
+  <section>
+    <h2>At a glance</h2>
+    <div class="stats" id="stats"><span class="loading">Loading…</span></div>
+  </section>
+
+  <section>
+    <h2>Most recorded species</h2>
+    <ul id="species"><li class="loading">Loading…</li></ul>
+  </section>
+
+  <section>
+    <h2>Latest community observations</h2>
+    <ul id="observations"><li class="loading">Loading…</li></ul>
+  </section>
+
+  <section>
+    <h2>Protected areas</h2>
+    <ul id="areas"><li class="loading">Loading…</li></ul>
+  </section>
+</main>
+
+<footer id="footer"></footer>
+
+<script>
+const API = location.origin;
+const THREATENED = new Set(["CR", "EN", "VU", "NT"]);
+const num = n => n?.toLocaleString?.() ?? "–";
+
+const get = path => fetch(API + path).then(r => r.ok ? r.json() : Promise.reject(r.status));
+
+function fill(id, html) { document.getElementById(id).innerHTML = html; }
+function fail(id, err) { fill(id, `<li class="loading">Could not load (${err})</li>`); }
+
+get("/v1/occurrences/stats").then(s => {
+  const top = s.by_kingdom.slice(0, 2);
+  fill("stats", [
+    ["Occurrence records", num(s.gbif_occurrences)],
+    ["Community observations", num(s.inaturalist_observations)],
+    ...top.map(k => [k.kingdom, num(k.count)]),
+  ].map(([label, value]) =>
+    `<div class="stat"><b>${value}</b><span>${label}</span></div>`).join(""));
+}).catch(e => fill("stats", `<span class="loading">Could not load (${e})</span>`));
+
+get("/v1/species/top?limit=8").then(list => {
+  fill("species", list.map(s => {
+    const code = s.conservation?.code;
+    const tag = code
+      ? `<span class="tag ${THREATENED.has(code) ? "threatened" : ""}">${code}</span>` : "";
+    const common = s.vernacular_names[0];
+    return `<li><div class="grow">
+      <div class="name"><a href="${s.gbif_url}" target="_blank" rel="noopener">
+        <i>${s.canonical_name ?? s.scientific_name}</i></a></div>
+      <div class="meta">${common ? common + " · " : ""}${num(s.occurrence_count_cv)} records</div>
+    </div>${tag}</li>`;
+  }).join(""));
+}).catch(e => fail("species", e));
+
+get("/v1/observations?limit=8&quality_grade=research").then(page => {
+  fill("observations", page.results.map(o => `<li>
+    ${o.media[0] ? `<img src="${o.media[0]}" alt="" loading="lazy">` : ""}
+    <div class="grow">
+      <div class="name"><a href="${o.url}" target="_blank" rel="noopener">
+        ${o.vernacular_name ?? o.scientific_name ?? "Unidentified"}</a></div>
+      <div class="meta">${o.locality ?? "Cape Verde"} · ${o.event_date?.slice(0, 10) ?? ""}</div>
+    </div>
+    ${o.iconic_taxon ? `<span class="tag">${o.iconic_taxon}</span>` : ""}
+  </li>`).join(""));
+}).catch(e => fail("observations", e));
+
+get("/v1/protected-areas").then(body => {
+  const km2 = a => a.reported_area_km2 == null ? ""
+    : a.reported_area_km2 >= 1 ? `${Math.round(a.reported_area_km2)} km²`
+    : `${a.area_ha.toFixed(0)} ha`;
+  const biggest = [...body.results].sort(
+    (a, b) => (b.reported_area_km2 ?? 0) - (a.reported_area_km2 ?? 0));
+  fill("areas", biggest.slice(0, 10).map(a => `<li><div class="grow">
+    <div class="name">${a.legal_instrument_url
+      ? `<a href="${a.legal_instrument_url}" target="_blank" rel="noopener">${a.name}</a>`
+      : a.name}</div>
+    <div class="meta">${a.island ?? ""}${a.designation ? " · " + a.designation : ""}</div>
+  </div><span class="tag">${km2(a)}</span></li>`).join(""));
+  document.querySelector("#areas").closest("section").querySelector("h2").textContent =
+    `Protected areas — ${body.total} covering ${Math.round(body.total_area_km2).toLocaleString()} km²`;
+  if (body.note) document.getElementById("footer").textContent = body.note;
+}).catch(e => fail("areas", e));
+</script>
+</body>
+</html>

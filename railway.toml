@@ -1,0 +1,16 @@
+# Railway service configuration.
+# Docs: https://docs.railway.com/reference/config-as-code
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# /health needs no upstream call, so it answers instantly even on a cold boot.
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+# The in-memory cache is per-replica. One replica is the cheapest correct
+# setup; raise it for availability, accepting that each warms its own cache.
+numReplicas = 1

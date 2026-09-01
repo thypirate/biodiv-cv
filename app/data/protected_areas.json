@@ -1,0 +1,942 @@
+[
+ {
+  "id": "pa-monumento-natural-ilheu-de-sal-rei",
+  "name": "Monumento Natural Ilhéu de Sal Rei",
+  "designation": "Monumento Natural",
+  "island": "Boa Vista",
+  "area_ha": 88.15,
+  "reported_area_km2": 0.881,
+  "coordinates": {
+   "latitude": 16.170153,
+   "longitude": -22.929546
+  },
+  "bbox": [
+   -22.93726,
+   16.163832,
+   -22.922378,
+   16.176492
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 29/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-monumento-natural-monte-estancia",
+  "name": "Monumento Natural Monte Estância",
+  "designation": "Monumento Natural",
+  "island": "Boa Vista",
+  "area_ha": 743.87,
+  "reported_area_km2": 7.439,
+  "coordinates": {
+   "latitude": 16.04563,
+   "longitude": -22.760761
+  },
+  "bbox": [
+   -22.776748,
+   16.032419,
+   -22.741764,
+   16.05738
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 10/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-monumento-natural-monte-santo-antonio",
+  "name": "Monumento Natural Monte Santo António",
+  "designation": "Monumento Natural",
+  "island": "Boa Vista",
+  "area_ha": 459.52,
+  "reported_area_km2": 4.595,
+  "coordinates": {
+   "latitude": 16.063157,
+   "longitude": -22.88284
+  },
+  "bbox": [
+   -22.89762,
+   16.0521,
+   -22.867977,
+   16.07393
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 30/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-monumento-natural-rocha-estancia",
+  "name": "Monumento Natural Rocha Estância",
+  "designation": "Monumento Natural",
+  "island": "Boa Vista",
+  "area_ha": 254.74,
+  "reported_area_km2": 2.547,
+  "coordinates": {
+   "latitude": 16.040811,
+   "longitude": -22.910594
+  },
+  "bbox": [
+   -22.9173,
+   16.029531,
+   -22.90288,
+   16.05069
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 32/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-monte-cacador-e-pico-forcado",
+  "name": "Paisagem Protegida Monte Caçador e Pico Forcado",
+  "designation": "Paisagem Protegida",
+  "island": "Boa Vista",
+  "area_ha": 3360.71,
+  "reported_area_km2": 33.607,
+  "coordinates": {
+   "latitude": 16.119503,
+   "longitude": -22.762197
+  },
+  "bbox": [
+   -22.78469,
+   16.07574,
+   -22.73559,
+   16.16963
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 31/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-de-curral-velho",
+  "name": "Paisagem Protegida de Curral Velho",
+  "designation": "Paisagem Protegida",
+  "island": "Boa Vista",
+  "area_ha": 1639.34,
+  "reported_area_km2": 16.393,
+  "coordinates": {
+   "latitude": 15.997457,
+   "longitude": -22.805287
+  },
+  "bbox": [
+   -22.843969,
+   15.976685,
+   -22.770875,
+   16.027191
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 43/2022, I Serie, número 77, terça-feira, 9 de agosto de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/8/9/1.1.77.4349/"
+ },
+ {
+  "id": "pa-parque-natural-do-norte",
+  "name": "Parque Natural do Norte",
+  "designation": "Parque Natural",
+  "island": "Boa Vista",
+  "area_ha": 24712.24,
+  "reported_area_km2": 247.122,
+  "coordinates": {
+   "latitude": 16.190188,
+   "longitude": -22.714365
+  },
+  "bbox": [
+   -22.813744,
+   16.09889,
+   -22.617705,
+   16.280448
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 6/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-rni-ilheu-baluarte",
+  "name": "RNI Ilhéu Baluarte",
+  "designation": "Reserva Natural Integral",
+  "island": "Boa Vista",
+  "area_ha": 78.47,
+  "reported_area_km2": 0.785,
+  "coordinates": {
+   "latitude": 16.153223,
+   "longitude": -22.660745
+  },
+  "bbox": [
+   -22.666768,
+   16.149905,
+   -22.654757,
+   16.156883
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 42/2022, I Serie, número 77, terça-feira, 9 de agosto de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/8/9/1.1.77.4349/"
+ },
+ {
+  "id": "pa-rni-ilheu-de-curral-velho",
+  "name": "RNI Ilhéu de Curral Velho",
+  "designation": "Reserva Natural Integral",
+  "island": "Boa Vista",
+  "area_ha": 42.42,
+  "reported_area_km2": 0.424,
+  "coordinates": {
+   "latitude": 15.969209,
+   "longitude": -22.789843
+  },
+  "bbox": [
+   -22.793398,
+   15.965965,
+   -22.786382,
+   15.972582
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 16/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-rni-ilheu-dos-passaros",
+  "name": "RNI Ilhéu dos Pássaros",
+  "designation": "Reserva Natural Integral",
+  "island": "Boa Vista",
+  "area_ha": 39.14,
+  "reported_area_km2": 0.391,
+  "coordinates": {
+   "latitude": 16.196156,
+   "longitude": -22.69877
+  },
+  "bbox": [
+   -22.702125,
+   16.193107,
+   -22.695443,
+   16.199372
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 11/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-reserva-natural-boa-esperanca",
+  "name": "Reserva Natural Boa Esperança",
+  "designation": "Reserva Natural",
+  "island": "Boa Vista",
+  "area_ha": 4014.87,
+  "reported_area_km2": 40.149,
+  "coordinates": {
+   "latitude": 16.184402,
+   "longitude": -22.872497
+  },
+  "bbox": [
+   -22.91689,
+   16.143747,
+   -22.805476,
+   16.213603
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 33/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-reserva-natural-morro-de-areia",
+  "name": "Reserva Natural Morro de Areia",
+  "designation": "Reserva Natural",
+  "island": "Boa Vista",
+  "area_ha": 2635.0,
+  "reported_area_km2": 26.35,
+  "coordinates": {
+   "latitude": 16.069725,
+   "longitude": -22.944772
+  },
+  "bbox": [
+   -22.968848,
+   16.016031,
+   -22.907912,
+   16.123365
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 34/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-reserva-natural-ponta-do-sol",
+  "name": "Reserva Natural Ponta do Sol",
+  "designation": "Reserva Natural",
+  "island": "Boa Vista",
+  "area_ha": 745.17,
+  "reported_area_km2": 7.452,
+  "coordinates": {
+   "latitude": 16.2171,
+   "longitude": -22.910112
+  },
+  "bbox": [
+   -22.923601,
+   16.196917,
+   -22.889389,
+   16.233673
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 28/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-reserva-natural-tartaruga",
+  "name": "Reserva Natural Tartaruga",
+  "designation": "Reserva Natural",
+  "island": "Boa Vista",
+  "area_ha": 17700.62,
+  "reported_area_km2": 177.006,
+  "coordinates": {
+   "latitude": 16.011883,
+   "longitude": -22.709496
+  },
+  "bbox": [
+   -22.812475,
+   15.917497,
+   -22.612803,
+   16.108579
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 14/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-reserva-natural-integral-ilheus-do-rombo",
+  "name": "Reserva Natural Integral Ilhéus do Rombo",
+  "designation": "Reserva Natural Integral",
+  "island": "Brava",
+  "area_ha": 923.22,
+  "reported_area_km2": 9.232,
+  "coordinates": {
+   "latitude": 14.970462,
+   "longitude": -24.665102
+  },
+  "bbox": [
+   -24.700164,
+   14.956707,
+   -24.627029,
+   14.986698
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 1/2022, I Serie, número 19, sexta-feira, 18 de fevereiro de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/2/18/1.1.19.4113/"
+ },
+ {
+  "id": "pa-parque-natural-do-fogo",
+  "name": "Parque Natural do Fogo",
+  "designation": "Parque Natural",
+  "island": "Fogo",
+  "area_ha": 8459.13,
+  "reported_area_km2": 84.591,
+  "coordinates": {
+   "latitude": 14.956327,
+   "longitude": -24.36441
+  },
+  "bbox": [
+   -24.412298,
+   14.904338,
+   -24.322053,
+   15.022678
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 5/2022, I Serie, número 29, quinta-feira, 17 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/17/1.1.29.4151/"
+ },
+ {
+  "id": "pa-paisagem-protegida-monte-penoso-e-monte-branco",
+  "name": "Paisagem Protegida Monte Penoso e Monte Branco",
+  "designation": "Paisagem Protegida",
+  "island": "Maio",
+  "area_ha": 1117.22,
+  "reported_area_km2": 11.172,
+  "coordinates": {
+   "latitude": 15.217134,
+   "longitude": -23.124176
+  },
+  "bbox": [
+   -23.139275,
+   15.190968,
+   -23.107214,
+   15.237837
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 31/2014, I Serie, número 72, terça-feira, 25 de Novembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/11/25/1.1.72.1932/p2156"
+ },
+ {
+  "id": "pa-paisagem-protegida-salinas-porto-ingles",
+  "name": "Paisagem Protegida Salinas Porto Inglês",
+  "designation": "Paisagem Protegida",
+  "island": "Maio",
+  "area_ha": 534.66,
+  "reported_area_km2": 5.347,
+  "coordinates": {
+   "latitude": 15.156787,
+   "longitude": -23.226885
+  },
+  "bbox": [
+   -23.236894,
+   15.141,
+   -23.214532,
+   15.175898
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 30/2014, I Serie, número 72, terça-feira, 25 de Novembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/11/25/1.1.72.1932/p2156"
+ },
+ {
+  "id": "pa-paisagem-protegida-de-barreiro-e-figueira",
+  "name": "Paisagem Protegida de Barreiro e Figueira",
+  "designation": "Parque Natural",
+  "island": "Maio",
+  "area_ha": 1078.19,
+  "reported_area_km2": 10.782,
+  "coordinates": {
+   "latitude": 15.15579,
+   "longitude": -23.149524
+  },
+  "bbox": [
+   -23.16671,
+   15.12087,
+   -23.127227,
+   15.191308
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 37/2014, I Serie, número 79, quarta-feira, 17 de Dezembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/12/17/1.1.79.1947/p2293"
+ },
+ {
+  "id": "pa-parque-natural-norte-da-ilha-do-maio",
+  "name": "Parque Natural Norte da Ilha do Maio",
+  "designation": "Parque Natural",
+  "island": "Maio",
+  "area_ha": 25543.86,
+  "reported_area_km2": 255.439,
+  "coordinates": {
+   "latitude": 15.312736,
+   "longitude": -23.153245
+  },
+  "bbox": [
+   -23.281094,
+   15.235598,
+   -23.042956,
+   15.388553
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 38/2014, I Serie, número 79, quarta-feira, 17 de Dezembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/12/17/1.1.79.1947/p2293"
+ },
+ {
+  "id": "pa-reserva-natural-casas-velhas",
+  "name": "Reserva Natural Casas Velhas",
+  "designation": "Reserva Natural",
+  "island": "Maio",
+  "area_ha": 6647.27,
+  "reported_area_km2": 66.473,
+  "coordinates": {
+   "latitude": 15.095103,
+   "longitude": -23.168609
+  },
+  "bbox": [
+   -23.233736,
+   15.066271,
+   -23.103852,
+   15.129287
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 32/2014, I Serie, número 72, terça-feira, 25 de Novembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/11/25/1.1.72.1932/p2156"
+ },
+ {
+  "id": "pa-reserva-natural-lagoa-cimidor",
+  "name": "Reserva Natural Lagoa Cimidor",
+  "designation": "Reserva Natural",
+  "island": "Maio",
+  "area_ha": 389.34,
+  "reported_area_km2": 3.893,
+  "coordinates": {
+   "latitude": 15.162953,
+   "longitude": -23.086053
+  },
+  "bbox": [
+   -23.099952,
+   15.149936,
+   -23.07117,
+   15.170555
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 33/2014, I Serie, número 72, terça-feira, 25 de Novembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/11/25/1.1.72.1932/p2156"
+ },
+ {
+  "id": "pa-reserva-natural-praia-de-morro",
+  "name": "Reserva Natural Praia de Morro",
+  "designation": "Reserva Natural",
+  "island": "Maio",
+  "area_ha": 665.98,
+  "reported_area_km2": 6.66,
+  "coordinates": {
+   "latitude": 15.19942,
+   "longitude": -23.236651
+  },
+  "bbox": [
+   -23.249958,
+   15.186055,
+   -23.223483,
+   15.212831
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 34/2014, I Serie, número 72, terça-feira, 25 de Novembro de 2014",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2014/11/25/1.1.72.1932/p2156"
+ },
+ {
+  "id": "pa-monumento-natural-morrinho-do-acucar",
+  "name": "Monumento Natural Morrinho do Açúcar",
+  "designation": "Monumento Natural",
+  "island": "Sal",
+  "area_ha": 4.88,
+  "reported_area_km2": 0.049,
+  "coordinates": {
+   "latitude": 16.828224,
+   "longitude": -22.955033
+  },
+  "bbox": [
+   -22.956134,
+   16.826988,
+   -22.953942,
+   16.829422
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 26/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-monumento-natural-morrinho-do-filho",
+  "name": "Monumento Natural Morrinho do Filho",
+  "designation": "Monumento Natural",
+  "island": "Sal",
+  "area_ha": 22.18,
+  "reported_area_km2": 0.222,
+  "coordinates": {
+   "latitude": 16.820693,
+   "longitude": -22.947052
+  },
+  "bbox": [
+   -22.94945,
+   16.818227,
+   -22.944454,
+   16.823105
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 23/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-buracona-ragona",
+  "name": "Paisagem Protegida Buracona-Ragona",
+  "designation": "Paisagem Protegida",
+  "island": "Sal",
+  "area_ha": 736.24,
+  "reported_area_km2": 7.362,
+  "coordinates": {
+   "latitude": 16.799924,
+   "longitude": -22.98602
+  },
+  "bbox": [
+   -22.997171,
+   16.761935,
+   -22.967617,
+   16.820182
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 25/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-monte-grande",
+  "name": "Paisagem Protegida Monte Grande",
+  "designation": "Paisagem Protegida",
+  "island": "Sal",
+  "area_ha": 1299.15,
+  "reported_area_km2": 12.991,
+  "coordinates": {
+   "latitude": 16.821429,
+   "longitude": -22.911351
+  },
+  "bbox": [
+   -22.92939,
+   16.80058,
+   -22.889454,
+   16.842757
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 24/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-salinas-de-pedra-de-lume-e-cagarral",
+  "name": "Paisagem Protegida Salinas de Pedra de Lume e Cagarral",
+  "designation": "Paisagem Protegida",
+  "island": "Sal",
+  "area_ha": 793.01,
+  "reported_area_km2": 7.93,
+  "coordinates": {
+   "latitude": 16.769028,
+   "longitude": -22.897304
+  },
+  "bbox": [
+   -22.91219,
+   16.75123,
+   -22.879914,
+   16.787199
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 27/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-salinas-de-santa-maria",
+  "name": "Paisagem Protegida Salinas de Santa Maria",
+  "designation": "Paisagem Protegida",
+  "island": "Sal",
+  "area_ha": 78.39,
+  "reported_area_km2": 0.784,
+  "coordinates": {
+   "latitude": 16.610169,
+   "longitude": -22.903135
+  },
+  "bbox": [
+   -22.910094,
+   16.60601,
+   -22.89754,
+   16.614871
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 9/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-reserva-natural-baia-da-murdeira",
+  "name": "Reserva Natural Baía da Murdeira",
+  "designation": "Reserva Natural",
+  "island": "Sal",
+  "area_ha": 7023.34,
+  "reported_area_km2": 70.233,
+  "coordinates": {
+   "latitude": 16.671458,
+   "longitude": -22.985023
+  },
+  "bbox": [
+   -23.04171,
+   16.63252,
+   -22.93387,
+   16.706024
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 21/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-reserva-natural-costa-da-fragata",
+  "name": "Reserva Natural Costa da Fragata",
+  "designation": "Reserva Natural",
+  "island": "Sal",
+  "area_ha": 2674.91,
+  "reported_area_km2": 26.749,
+  "coordinates": {
+   "latitude": 16.619859,
+   "longitude": -22.872646
+  },
+  "bbox": [
+   -22.91582,
+   16.59985,
+   -22.833315,
+   16.63651
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 15/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-reserva-natural-ponta-de-sino",
+  "name": "Reserva Natural Ponta de Sinó",
+  "designation": "Reserva Natural",
+  "island": "Sal",
+  "area_ha": 5930.37,
+  "reported_area_km2": 59.304,
+  "coordinates": {
+   "latitude": 16.589595,
+   "longitude": -22.952906
+  },
+  "bbox": [
+   -22.997599,
+   16.534897,
+   -22.922511,
+   16.632904
+  ],
+  "legal_instrument": "Decreto-Regulamentar n.º 5/2025, I Serie, nº 117, 28 novembro",
+  "legal_instrument_url": "https://boe.incv.cv/Bulletins/View/88661"
+ },
+ {
+  "id": "pa-reserva-natural-rabo-de-junco",
+  "name": "Reserva Natural Rabo de Junco",
+  "designation": "Reserva Natural",
+  "island": "Sal",
+  "area_ha": 154.09,
+  "reported_area_km2": 1.541,
+  "coordinates": {
+   "latitude": 16.700804,
+   "longitude": -22.981376
+  },
+  "bbox": [
+   -22.98959,
+   16.694211,
+   -22.975291,
+   16.708825
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 22/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-reserva-natural-serra-negra",
+  "name": "Reserva Natural Serra Negra",
+  "designation": "Reserva Natural",
+  "island": "Sal",
+  "area_ha": 3101.21,
+  "reported_area_km2": 31.012,
+  "coordinates": {
+   "latitude": 16.655009,
+   "longitude": -22.857986
+  },
+  "bbox": [
+   -22.900768,
+   16.635902,
+   -22.820091,
+   16.674806
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 13/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-reserva-natural-de-santa-luzia",
+  "name": "Reserva Natural de Santa Luzia",
+  "designation": "Reserva Natural",
+  "island": "Santa Luzia",
+  "area_ha": 30711.67,
+  "reported_area_km2": 307.117,
+  "coordinates": {
+   "latitude": 16.766251,
+   "longitude": -24.74022
+  },
+  "bbox": [
+   -24.843361,
+   16.684896,
+   -24.63089,
+   16.856714
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 36/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-parque-natural-da-baia-do-inferno-e-do-monte-angra",
+  "name": "Parque Natural da Baía do Inferno e do Monte Angra",
+  "designation": "Parque Natural",
+  "island": "Santiago",
+  "area_ha": 21098.2,
+  "reported_area_km2": 210.982,
+  "coordinates": {
+   "latitude": 14.98431,
+   "longitude": -23.75818
+  },
+  "bbox": [
+   -23.853483,
+   14.87507,
+   -23.688378,
+   15.069673
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 3/2021, I Serie, número 37, sexta-feira, 9 de abril de 2021",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2021/4/9/1.1.37.3703/"
+ },
+ {
+  "id": "pa-parque-natural-de-serra-malagueta",
+  "name": "Parque Natural de Serra Malagueta",
+  "designation": "Parque Natural",
+  "island": "Santiago",
+  "area_ha": 772.97,
+  "reported_area_km2": 7.73,
+  "coordinates": {
+   "latitude": 15.184047,
+   "longitude": -23.682307
+  },
+  "bbox": [
+   -23.704833,
+   15.169879,
+   -23.657653,
+   15.203398
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 4/2022, I Serie, número 29, quinta-feira, 17 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/17/1.1.29.4151/"
+ },
+ {
+  "id": "pa-parque-natural-de-serra-do-pico-de-antonia",
+  "name": "Parque Natural de Serra do Pico de Antónia",
+  "designation": "Parque Natural",
+  "island": "Santiago",
+  "area_ha": 2935.57,
+  "reported_area_km2": 29.356,
+  "coordinates": {
+   "latitude": 15.046413,
+   "longitude": -23.622041
+  },
+  "bbox": [
+   -23.67307,
+   15.017804,
+   -23.571024,
+   15.077138
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 37/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-paisagem-protegida-das-pombas",
+  "name": "Paisagem Protegida das Pombas",
+  "designation": "Paisagem Protegida",
+  "island": "Santo Antão",
+  "area_ha": 314.67,
+  "reported_area_km2": 3.147,
+  "coordinates": {
+   "latitude": 17.128699,
+   "longitude": -25.012647
+  },
+  "bbox": [
+   -25.023409,
+   17.118794,
+   -25.001739,
+   17.138786
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 19/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-parque-natural-de-cova-ribeira-paul-e-torre",
+  "name": "Parque Natural de Cova, Ribeira Paúl e Torre",
+  "designation": "Parque Natural",
+  "island": "Santo Antão",
+  "area_ha": 2130.11,
+  "reported_area_km2": 21.301,
+  "coordinates": {
+   "latitude": 17.117647,
+   "longitude": -25.058571
+  },
+  "bbox": [
+   -25.088952,
+   17.09254,
+   -25.016514,
+   17.141717
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 8/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-parque-natural-de-cruzinha",
+  "name": "Parque Natural de Cruzinha",
+  "designation": "Parque Natural",
+  "island": "Santo Antão",
+  "area_ha": 12487.74,
+  "reported_area_km2": 124.877,
+  "coordinates": {
+   "latitude": 17.178847,
+   "longitude": -25.172772
+  },
+  "bbox": [
+   -25.246723,
+   17.102853,
+   -25.092955,
+   17.242099
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 35/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-parque-natural-de-morocos",
+  "name": "Parque Natural de Moroços",
+  "designation": "Parque Natural",
+  "island": "Santo Antão",
+  "area_ha": 840.28,
+  "reported_area_km2": 8.403,
+  "coordinates": {
+   "latitude": 17.097173,
+   "longitude": -25.171587
+  },
+  "bbox": [
+   -25.198202,
+   17.083279,
+   -25.149714,
+   17.111986
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 17/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ },
+ {
+  "id": "pa-parque-natural-de-topo-de-coroa",
+  "name": "Parque Natural de Topo de Coroa",
+  "designation": "Parque Natural",
+  "island": "Santo Antão",
+  "area_ha": 8754.64,
+  "reported_area_km2": 87.546,
+  "coordinates": {
+   "latitude": 17.019858,
+   "longitude": -25.269336
+  },
+  "bbox": [
+   -25.329485,
+   16.960406,
+   -25.220142,
+   17.082523
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 20/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-parque-natural-de-monte-gordo",
+  "name": "Parque Natural de Monte Gordo",
+  "designation": "Parque Natural",
+  "island": "São Nicolau",
+  "area_ha": 950.11,
+  "reported_area_km2": 9.501,
+  "coordinates": {
+   "latitude": 16.625028,
+   "longitude": -24.352207
+  },
+  "bbox": [
+   -24.378373,
+   16.6093,
+   -24.323133,
+   16.639616
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 3/2022, I Serie, número 29, quinta-feira, 17 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/17/1.1.29.4151/"
+ },
+ {
+  "id": "pa-reserva-natural-integral-ilheus-branco-e-raso",
+  "name": "Reserva Natural Integral Ilhéus Branco e Raso",
+  "designation": "Reserva Natural Integral",
+  "island": "São Nicolau",
+  "area_ha": 1473.28,
+  "reported_area_km2": 14.733,
+  "coordinates": {
+   "latitude": 16.633668,
+   "longitude": -24.619758
+  },
+  "bbox": [
+   -24.686579,
+   16.60466,
+   -24.569355,
+   16.674069
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 2/2022, I Serie, número 19, sexta-feira, 18 de fevereiro de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/2/18/1.1.19.4113/"
+ },
+ {
+  "id": "pa-reserva-natural-monte-do-alto-das-cabacas",
+  "name": "Reserva Natural Monte do Alto das Cabaças",
+  "designation": "Reserva Natural",
+  "island": "São Nicolau",
+  "area_ha": 1327.52,
+  "reported_area_km2": 13.275,
+  "coordinates": {
+   "latitude": 16.60504,
+   "longitude": -24.132345
+  },
+  "bbox": [
+   -24.181875,
+   16.58911,
+   -24.086688,
+   16.623311
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 18/2022, I Serie, número 31, quinta-feira, 24 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/24/1.1.31.4152/"
+ },
+ {
+  "id": "pa-parque-natural-de-monte-verde",
+  "name": "Parque Natural de Monte Verde",
+  "designation": "Parque Natural",
+  "island": "São Vicente",
+  "area_ha": 315.96,
+  "reported_area_km2": 3.16,
+  "coordinates": {
+   "latitude": 16.873406,
+   "longitude": -24.926764
+  },
+  "bbox": [
+   -24.938505,
+   16.859031,
+   -24.910155,
+   16.883961
+  ],
+  "legal_instrument": "Decreto-Regulamentar nº 7/2022, I Serie, número 30, terça-feira, 22 de março de 2022",
+  "legal_instrument_url": "https://kiosk.incv.cv/V/2022/3/22/1.1.30.4148/p1"
+ }
+]

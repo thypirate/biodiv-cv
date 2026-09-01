@@ -1,0 +1,14 @@
+.venv/
+.git/
+.github/
+.pytest_cache/
+__pycache__/
+*.py[oc]
+.env
+tests/
+scripts/
+docs/
+README.md
+Dockerfile
+.dockerignore
+railway.toml
