@@ -1,7 +1,7 @@
 ## Cabo Verde Biodiversidade Open Data API
 
 An open API aggregating biodiversity observations, species
-information, conservation status and protected areas for **Cape Verde** 🇨.
+information, conservation status and protected areas for **Cape Verde**.
 
 **v1 is deliberately stateless.** Every request fans out to public upstream APIs, normalises the responses
 into one consistent schema, and caches them in memory for a few minutes.
