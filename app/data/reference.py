@@ -9,16 +9,16 @@ from app.schemas import Island, ProtectedArea
 DATA_DIR = Path(__file__).resolve().parent
 
 ISLANDS: list[Island] = [
-    Island(name="Santo Antão", group="Barlavento", area_km2=779.0, highest_point_m=1979, inhabited=True),
-    Island(name="São Vicente", group="Barlavento", area_km2=227.0, highest_point_m=725, inhabited=True),
-    Island(name="Santa Luzia", group="Barlavento", area_km2=35.0, highest_point_m=395, inhabited=False),
-    Island(name="São Nicolau", group="Barlavento", area_km2=343.0, highest_point_m=1304, inhabited=True),
-    Island(name="Sal", group="Barlavento", area_km2=216.0, highest_point_m=406, inhabited=True),
-    Island(name="Boa Vista", group="Barlavento", area_km2=620.0, highest_point_m=387, inhabited=True),
-    Island(name="Maio", group="Sotavento", area_km2=269.0, highest_point_m=436, inhabited=True),
-    Island(name="Santiago", group="Sotavento", area_km2=991.0, highest_point_m=1394, inhabited=True),
-    Island(name="Fogo", group="Sotavento", area_km2=476.0, highest_point_m=2829, inhabited=True),
-    Island(name="Brava", group="Sotavento", area_km2=64.0, highest_point_m=976, inhabited=True),
+    Island(id="santo-antao", name="Santo Antão", group="Barlavento", area_km2=779.0, highest_point_m=1979, inhabited=True),
+    Island(id="sao-vicente", name="São Vicente", group="Barlavento", area_km2=227.0, highest_point_m=725, inhabited=True),
+    Island(id="santa-luzia", name="Santa Luzia", group="Barlavento", area_km2=35.0, highest_point_m=395, inhabited=False),
+    Island(id="sao-nicolau", name="São Nicolau", group="Barlavento", area_km2=343.0, highest_point_m=1304, inhabited=True),
+    Island(id="sal", name="Sal", group="Barlavento", area_km2=216.0, highest_point_m=406, inhabited=True),
+    Island(id="boa-vista", name="Boa Vista", group="Barlavento", area_km2=620.0, highest_point_m=387, inhabited=True),
+    Island(id="maio", name="Maio", group="Sotavento", area_km2=269.0, highest_point_m=436, inhabited=True),
+    Island(id="santiago", name="Santiago", group="Sotavento", area_km2=991.0, highest_point_m=1394, inhabited=True),
+    Island(id="fogo", name="Fogo", group="Sotavento", area_km2=476.0, highest_point_m=2829, inhabited=True),
+    Island(id="brava", name="Brava", group="Sotavento", area_km2=64.0, highest_point_m=976, inhabited=True),
 ]
 
 

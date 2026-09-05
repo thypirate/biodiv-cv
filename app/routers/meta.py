@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from app.cache import cache_stats
 from app.config import settings
@@ -22,6 +22,12 @@ async def health() -> dict[str, Any]:
 async def islands() -> list[Island]:
     return ISLANDS
 
+@router.get("/v1/islands/{island_id}", response_model=Island, summary="A single island of Cape Verde")
+async def island(island_id: str) -> Island:
+    for island in ISLANDS:
+        if island.id == island_id:
+            return island
+    raise HTTPException(status_code=404, detail="Island not found")
 
 @router.get("/v1/sources", response_model=list[SourceInfo], summary="Upstream data sources and licences")
 async def sources() -> list[SourceInfo]:
