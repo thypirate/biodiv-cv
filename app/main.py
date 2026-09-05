@@ -12,7 +12,7 @@ from pathlib import Path
 
 from app import clients
 from app.config import settings
-from app.routers import meta, occurrences, protected_areas, species
+from app.routers import beaches, meta, occurrences, protected_areas, species
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
@@ -60,6 +60,7 @@ app.include_router(meta.router)
 app.include_router(species.router)
 app.include_router(occurrences.router)
 app.include_router(protected_areas.router)
+app.include_router(beaches.router)
 
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"

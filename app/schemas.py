@@ -33,6 +33,7 @@ class Page(Linked, Generic[T]):
     end_of_records: bool = False
     results: list[T]
     sources: list[str] = Field(default_factory=list, description="Upstream datasets used")
+    retrievedAt: str | None = Field(None, description="Timestamp of the upstream query, when known")
 
 
 class Taxonomy(BaseModel):
@@ -46,7 +47,7 @@ class Taxonomy(BaseModel):
     model_config = {"populate_by_name": True}
 
 
-class Species(Linked):
+class  Species(Linked):
     gbif_key: int | None = None
     scientific_name: str
     canonical_name: str | None = None
@@ -155,3 +156,10 @@ class SourceInfo(BaseModel):
     requires_token: bool = False
     enabled: bool = True
     used_for: list[str] = Field(default_factory=list)
+
+class Beach(BaseModel):
+    id: str
+    name: str
+    island: dict[str, str]
+    coordinates: Coordinates | None = None
+    sand: str | None = None

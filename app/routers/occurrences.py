@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import datetime
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -47,6 +48,7 @@ async def occurrences(
         results=[gbif.to_occurrence(row) for row in data.get("results", [])],
         sources=["gbif"],
         links=page_links(request, limit=limit, offset=offset, total=data.get("count")),
+        retrievedAt=str(datetime.datetime.now()),
     )
 
 

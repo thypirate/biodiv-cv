@@ -1,0 +1,340 @@
+[
+  {
+    "id": "beach-praia-de-santa-maria",
+    "name": "Praia de Santa Maria",
+    "island": {
+      "name": "Sal",
+      "href": "/v1/islands/sal"
+    },
+    "coordinates": {
+      "latitude": 16.5914,
+      "longitude": -22.9147
+    },
+    "sand": "golden/white"
+  },
+  {
+    "id": "beach-kite-beach",
+    "name": "Kite Beach",
+    "island": {
+      "name": "Sal",
+      "href": "/v1/islands/sal"
+    },
+    "coordinates": {
+      "latitude": 16.614,
+      "longitude": 22.897
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-ponta-preta",
+    "name": "Ponta Preta",
+    "island": {
+      "name": "Sal",
+      "href": "/v1/islands/sal"
+    },
+    "coordinates": {
+      "latitude": 16.6057,
+      "longitude": -22.9297
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-serra-negra-costa-da-fragata",
+    "name": "Serra Negra / Costa da Fragata",
+    "island": {
+      "name": "Sal",
+      "href": "/v1/islands/sal"
+    },
+    "coordinates": {
+      "latitude": 16.65,
+      "longitude": -22.88
+    },
+    "sand": "dark"
+  },
+  {
+    "id": "beach-praia-de-chaves",
+    "name": "Praia de Chaves",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.101,
+      "longitude": -22.92
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-santa-monica",
+    "name": "Praia de Santa Monica",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.003,
+      "longitude": -22.918
+    },
+    "sand": "white"
+  },
+  {
+    "id": "beach-cabo-de-santa-maria",
+    "name": "Cabo de Santa Maria (Shipwreck Beach / Praia de Atalanta)",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.202,
+      "longitude": -22.865
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-curralinho",
+    "name": "Praia de Curralinho (Carquejinha)",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.045,
+      "longitude": -22.95
+    },
+    "sand": "white"
+  },
+  {
+    "id": "beach-praia-lacação",
+    "name": "Praia da Lacação",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 15.985,
+      "longitude": -22.817
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-curral-velho",
+    "name": "Praia de Curral Velho",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 15.95,
+      "longitude": -22.83
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-atalanta",
+    "name": "Praia de Atalanta",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.202,
+      "longitude": -22.865
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-cabral",
+    "name": "Praia de Cabral",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.185,
+      "longitude": -22.918
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-cruz",
+    "name": "Praia de Cruz (Praia d'Cruz)",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.189,
+      "longitude": -22.916
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-da-bahia",
+    "name": "Praia da Bahia",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.168,
+      "longitude": -22.911
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-estorial",
+    "name": "Praia de Estorial",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.17,
+      "longitude": -22.914
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-varandinha",
+    "name": "Varandinha",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.04,
+      "longitude": -22.9
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-ervatão",
+    "name": "Ervatão",
+    "island": {
+      "name": "Boa Vista",
+      "href": "/v1/islands/boa-vista"
+    },
+    "coordinates": {
+      "latitude": 16.04,
+      "longitude": -22.69
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-do-tarrafal",
+    "name": "Praia do Tarrafal",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 15.2837,
+      "longitude": -23.752
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-quebra-canela",
+    "name": "Quebra Canela (Kebra Canela)",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 14.904,
+      "longitude": -23.517
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praianha",
+    "name": "Praianha",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 14.904,
+      "longitude": -23.511
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-sao-francisco",
+    "name": "Praia de São Francisco",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 14.975,
+      "longitude": -23.461
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-baixo",
+    "name": "Praia Baixo",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 15.062,
+      "longitude": -23.473
+    },
+    "sand": "dark/black volcanic"
+  },
+  {
+    "id": "beach-ribeira-da-prata",
+    "name": "Ribeira da Prata",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 15.233,
+      "longitude": -23.743
+    },
+    "sand": "dark/black volcanic"
+  },
+  {
+    "id": "beach-praia-da-gamboa",
+    "name": "Praia da Gamboa",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 14.914,
+      "longitude": -23.509
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-aguas-belas",
+    "name": "Águas Belas",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 15.139,
+      "longitude": -23.761
+    },
+    "sand": "-"
+  },
+  {
+    "id": "beach-praia-de-mague",
+    "name": "Praia de Mague",
+    "island": {
+      "name": "Santiago",
+      "href": "/v1/islands/santiago"
+    },
+    "coordinates": {
+      "latitude": 15.092,
+      "longitude": -23.491
+    },
+    "sand": "dark"
+  }
+]
