@@ -9,16 +9,16 @@ from app.schemas import Island, ProtectedArea
 DATA_DIR = Path(__file__).resolve().parent
 
 ISLANDS: list[Island] = [
-    Island(id="santo-antao", name="Santo Antão", group="Barlavento", area_km2=779.0, highest_point_m=1979, inhabited=True),
-    Island(id="sao-vicente", name="São Vicente", group="Barlavento", area_km2=227.0, highest_point_m=725, inhabited=True),
-    Island(id="santa-luzia", name="Santa Luzia", group="Barlavento", area_km2=35.0, highest_point_m=395, inhabited=False),
-    Island(id="sao-nicolau", name="São Nicolau", group="Barlavento", area_km2=343.0, highest_point_m=1304, inhabited=True),
-    Island(id="sal", name="Sal", group="Barlavento", area_km2=216.0, highest_point_m=406, inhabited=True),
-    Island(id="boa-vista", name="Boa Vista", group="Barlavento", area_km2=620.0, highest_point_m=387, inhabited=True),
-    Island(id="maio", name="Maio", group="Sotavento", area_km2=269.0, highest_point_m=436, inhabited=True),
-    Island(id="santiago", name="Santiago", group="Sotavento", area_km2=991.0, highest_point_m=1394, inhabited=True),
-    Island(id="fogo", name="Fogo", group="Sotavento", area_km2=476.0, highest_point_m=2829, inhabited=True),
-    Island(id="brava", name="Brava", group="Sotavento", area_km2=64.0, highest_point_m=976, inhabited=True),
+    Island(id="santo-antao", name="Santo Antão", capital="Ribeira Grande", group="Barlavento", area_km2=779.0, highest_point_m=1979, inhabited=True),
+    Island(id="sao-vicente", name="São Vicente", capital="Mindelo", group="Barlavento", area_km2=227.0, highest_point_m=725, inhabited=True),
+    Island(id="santa-luzia", name="Santa Luzia", capital="", group="Barlavento", area_km2=35.0, highest_point_m=395, inhabited=False),
+    Island(id="sao-nicolau", name="São Nicolau", capital="Ribeira Grande", group="Barlavento", area_km2=343.0, highest_point_m=1304, inhabited=True),
+    Island(id="sal", name="Sal", capital="Espargos", group="Barlavento", area_km2=216.0, highest_point_m=406, inhabited=True),
+    Island(id="boa-vista", name="Boa Vista", capital="Sal Rei", group="Barlavento", area_km2=620.0, highest_point_m=387, inhabited=True),
+    Island(id="maio", name="Maio", capital="Vila do Maio", group="Sotavento", area_km2=269.0, highest_point_m=436, inhabited=True),
+    Island(id="santiago", name="Santiago", capital="Praia", group="Sotavento", area_km2=991.0, highest_point_m=1394, inhabited=True),
+    Island(id="fogo", name="Fogo", capital="São Filipe", group="Sotavento", area_km2=476.0, highest_point_m=2829, inhabited=True),
+    Island(id="brava", name="Brava", capital="Nova Sintra", group="Sotavento", area_km2=64.0, highest_point_m=976, inhabited=True),
 ]
 
 

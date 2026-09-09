@@ -336,5 +336,83 @@
       "longitude": -23.491
     },
     "sand": "dark"
+  },
+  {
+    "id": "beach-praia-de-laginha",
+    "name": "Praia de Laginha",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.888,
+      "longitude": -24.991
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-baia-das-gatas",
+    "name": "Baia das Gatas",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.9,
+      "longitude": -24.95
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-grande",
+    "name": "Praia Grande",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.888,
+      "longitude": -24.991
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-de-sao-pedro",
+    "name": "Praia de São Pedro",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.9,
+      "longitude": -24.95
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-praia-dos-flamengos",
+    "name": "Praia dos Flamengos (Praia de Flamengo)",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.9,
+      "longitude": -24.95
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-salamansa",
+    "name": "Salamansa",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.9,
+      "longitude": -24.95
+    },
+    "sand": "golden"
   }
 ]

@@ -143,6 +143,7 @@ class ProtectedArea(BaseModel):
 class Island(BaseModel):
     id: str
     name: str
+    capital: str | None = None
     group: Literal["Barlavento", "Sotavento"]
     area_km2: float
     highest_point_m: int

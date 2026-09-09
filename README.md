@@ -46,6 +46,8 @@ override defaults or add a Protected Planet token.
 | `GET /v1/protected-areas/{id}`         | One protected area, with area, centroid, bbox and establishing decree                         |
 | `GET /v1/islands`                      | The ten islands, with area and highest point                                                  |
 | `GET /v1/sources`                      | Every upstream source, its licence, and whether it is enabled                                 |
+| `GET /v1/beaches`                      | Lists known beaches in Cape Verde                                                             |
+| `GET /v1/beaches/{id}`                 | One beach in Cape Verde                                                                       |
 
 Species and occurrence responses carry hypermedia `_links` — see
 [Hypermedia (HATEOAS)](#hypermedia-hateoas).
