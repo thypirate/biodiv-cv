@@ -58,19 +58,27 @@ def cached(ttl: int | None = None) -> Callable[[Callable[P, Awaitable[T]]], Call
             async with guard:
                 lock = locks.setdefault(key, asyncio.Lock())
 
-            async with lock:
-                # Another coroutine may have filled it while we waited.
-                try:
-                    value = store[key]
-                    _stats["hits"] += 1
+            try:
+                async with lock:
+                    # Another coroutine may have filled it while we waited.
+                    try:
+                        value = store[key]
+                        _stats["hits"] += 1
+                        return value
+                    except KeyError:
+                        pass
+                    _stats["misses"] += 1
+                    value = await fn(*args, **kwargs)
+                    store[key] = value
                     return value
-                except KeyError:
-                    pass
-                _stats["misses"] += 1
-                value = await fn(*args, **kwargs)
-                store[key] = value
-                return value
+            finally:
+                # Drop the lock once nobody holds it, otherwise `locks` gains an
+                # entry for every distinct key and grows for the life of the process.
+                async with guard:
+                    if locks.get(key) is lock and not lock.locked():
+                        del locks[key]
 
+        wrapper.cache_locks = locks  # type: ignore[attr-defined]  # exposed for tests
         return wrapper
 
     return decorator

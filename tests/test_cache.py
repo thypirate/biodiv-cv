@@ -41,3 +41,37 @@ def test_cached_separates_arguments():
     cache_clear()
     asyncio.run(run())
     assert calls == 2
+
+
+def test_locks_are_released_after_use():
+    """Every distinct key used to leave a lock behind forever."""
+
+    @cached(ttl=60)
+    async def fetch(i: int) -> int:
+        await asyncio.sleep(0)
+        return i
+
+    async def run():
+        # Distinct keys, plus concurrent callers sharing the same key.
+        await asyncio.gather(*(fetch(i % 50) for i in range(500)))
+
+    cache_clear()
+    asyncio.run(run())
+    assert fetch.cache_locks == {}
+
+
+def test_lock_released_when_upstream_fails():
+    @cached(ttl=60)
+    async def boom(i: int) -> int:
+        raise RuntimeError("upstream down")
+
+    async def run():
+        for i in range(20):
+            try:
+                await boom(i)
+            except RuntimeError:
+                pass
+
+    cache_clear()
+    asyncio.run(run())
+    assert boom.cache_locks == {}
