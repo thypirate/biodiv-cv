@@ -5,6 +5,7 @@ import pytest
 
 from app.sources import gbif, inaturalist, protectedplanet
 from tests.test_normalizers import GBIF_OCCURRENCE, GBIF_SPECIES
+from fastapi import HTTPException
 
 
 def test_health(client):
@@ -300,7 +301,7 @@ def test_stats_survives_inaturalist_being_down(client, monkeypatch):
         return {"KINGDOM_KEY": [{"key": "1", "count": 159368}]}
 
     async def inat_down():
-        return None
+        raise HTTPException(status_code=504, detail="iNaturalist did not respond in time")
 
     monkeypatch.setattr(gbif, "occurrence_count", gbif_total)
     monkeypatch.setattr(gbif, "facets", gbif_facets)

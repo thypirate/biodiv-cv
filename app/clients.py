@@ -7,12 +7,22 @@ from typing import Any
 import httpx
 from fastapi import HTTPException
 
+from datetime import datetime, timezone
+
+from collections.abc import Awaitable
+
+from typing import TypeVar
+
 from app.config import settings
 
 log = logging.getLogger("cvbio.http")
 
+T = TypeVar("T")
+
 _client: httpx.AsyncClient | None = None
 
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 async def startup() -> None:
     global _client
@@ -32,7 +42,7 @@ async def shutdown() -> None:
 
 
 def client() -> httpx.AsyncClient:
-    if _client is None:  # pragma: no cover - only outside the app lifespan
+    if _client is None:
         raise RuntimeError("HTTP client not initialised; use the app lifespan")
     return _client
 
@@ -44,11 +54,7 @@ def _encode(value: Any) -> str:
 
 
 def _clean(params: dict[str, Any] | None) -> list[tuple[str, str]]:
-    """Drop None values and expand lists into repeated query params.
 
-    Returned as a list of pairs because several upstreams (GBIF facets in
-    particular) rely on the same key appearing more than once.
-    """
     if not params:
         return []
     out: list[tuple[str, str]] = []
@@ -88,7 +94,10 @@ async def get_json(
             if response.status_code == 404:
                 return None
             if response.status_code < 400:
-                return response.json()
+                data = response.json()
+                if isinstance(data, dict):
+                    data["_retrieved_at"] = utc_now()
+                return data
             if response.status_code in (429, 500, 502, 503, 504) and attempt < attempts - 1:
                 last_exc = httpx.HTTPStatusError(
                     f"{source} returned {response.status_code}", request=response.request, response=response
@@ -106,16 +115,9 @@ async def get_json(
     raise HTTPException(status_code=504, detail=f"{source} did not respond in time")
 
 
-async def get_json_optional(url: str, **kwargs: Any) -> Any:
-    """Like get_json but returns None instead of raising.
-
-    Used for enrichment calls where a missing side-source should degrade the
-    response, not fail it.
-    """
+async def optional(awaitable: Awaitable[T]) -> T | None:
     try:
-        return await get_json(url, **kwargs)
-    except HTTPException:
-        return None
-    except Exception as exc:  # pragma: no cover - defensive
-        log.warning("optional fetch failed for %s: %s", url, exc)
+        return await awaitable
+    except HTTPException as exc:
+        log.warning("optional source unavailable: %s", exc.detail)
         return None

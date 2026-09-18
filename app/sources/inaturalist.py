@@ -1,11 +1,9 @@
-"""iNaturalist — the community-observation layer. No API key required."""
-
 from __future__ import annotations
 
 from typing import Any
 
 from app.cache import cached
-from app.clients import get_json, get_json_optional
+from app.clients import get_json
 from app.config import settings
 from app.links import occurrence_links
 from app.schemas import Coordinates, Occurrence
@@ -19,7 +17,6 @@ def _photos(raw: dict[str, Any]) -> list[str]:
     for photo in raw.get("photos") or []:
         url = photo.get("url")
         if url:
-            # iNat returns the square thumbnail; ask for something usable.
             urls.append(url.replace("/square.", "/medium."))
     return urls[:5]
 
@@ -94,12 +91,8 @@ async def species_counts(limit: int = 20) -> dict[str, Any]:
 
 @cached(ttl=settings.cache_ttl_long)
 async def observation_count() -> int | None:
-    """Total observations, or None if iNaturalist is unreachable.
 
-    Used only for the national overview, where it is one figure among many —
-    losing it should not take the whole endpoint down with it.
-    """
-    data = await get_json_optional(
+    data = await get_json(
         f"{BASE}/observations",
         params={"place_id": PLACE_ID, "per_page": 0},
         source="iNaturalist",

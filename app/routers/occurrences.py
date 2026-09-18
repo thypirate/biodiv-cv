@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-import datetime
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Query, Request
@@ -9,9 +8,9 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from app.links import page_links
 from app.schemas import Occurrence, Page
 from app.sources import gbif, inaturalist
+from app.clients import optional
 
 router = APIRouter(prefix="/v1", tags=["occurrences"])
-
 
 @router.get("/occurrences", response_model=Page[Occurrence], summary="Biodiversity records in Cape Verde")
 async def occurrences(
@@ -48,7 +47,7 @@ async def occurrences(
         results=[gbif.to_occurrence(row) for row in data.get("results", [])],
         sources=["gbif"],
         links=page_links(request, limit=limit, offset=offset, total=data.get("count")),
-        retrievedAt=str(datetime.datetime.now()),
+        retrieved_at=data.get("_retrieved_at"),
     )
 
 
@@ -58,7 +57,7 @@ async def stats() -> dict[str, Any]:
     total, facets, inat_total = await asyncio.gather(
         gbif.occurrence_count(),
         gbif.facets(facet_fields, facet_limit=12),
-        inaturalist.observation_count(),
+        optional(inaturalist.observation_count()),
     )
 
     kingdoms = [

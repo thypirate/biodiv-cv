@@ -17,7 +17,7 @@ from app.routers import beaches, meta, occurrences, protected_areas, species
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
 DESCRIPTION = """
-Open, stateless API aggregating biodiversity data for **Cape Verde** 🇨🇻.
+Open, stateless API aggregating biodiversity data for **Cape Verde**.
 
 This service stores nothing. Every request is answered by fanning out to public
 upstream APIs (GBIF, iNaturalist, Wikipedia, optionally Protected Planet),

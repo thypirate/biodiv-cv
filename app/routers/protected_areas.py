@@ -7,13 +7,14 @@ from fastapi import APIRouter, HTTPException, Query
 from app.data.reference import INGT_NOTE, INGT_SOURCE, protected_areas
 from app.schemas import ProtectedArea
 from app.sources import protectedplanet
+from app.clients import optional
 
 router = APIRouter(prefix="/v1/protected-areas", tags=["protected areas"])
 
 
 async def _load() -> tuple[list[ProtectedArea], bool]:
     """Official INGT data by default; WDPA instead when a token is configured."""
-    live = await protectedplanet.list_areas(limit=100)
+    live = await optional(protectedplanet.list_areas(limit=100))
     if live:
         return live, True
     return list(protected_areas()), False

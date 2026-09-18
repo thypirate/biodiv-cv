@@ -345,8 +345,8 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.888,
-      "longitude": -24.991
+      "latitude": 16.896,
+      "longitude": -24.992
     },
     "sand": "golden"
   },
@@ -358,8 +358,8 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.9,
-      "longitude": -24.95
+      "latitude": 16.903,
+      "longitude": -24.904
     },
     "sand": "golden"
   },
@@ -371,8 +371,8 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.888,
-      "longitude": -24.991
+      "latitude": 16.863,
+      "longitude": -24.876
     },
     "sand": "golden"
   },
@@ -384,8 +384,8 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.9,
-      "longitude": -24.95
+      "latitude": 16.827,
+      "longitude": -25.066
     },
     "sand": "golden"
   },
@@ -397,8 +397,8 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.9,
-      "longitude": -24.95
+      "latitude": 16.807,
+      "longitude": -25.045
     },
     "sand": "golden"
   },
@@ -410,9 +410,48 @@
       "href": "/v1/islands/sao-vicente"
     },
     "coordinates": {
-      "latitude": 16.9,
-      "longitude": -24.95
+      "latitude": 16.905,
+      "longitude": -24.944
     },
     "sand": "golden"
+  },
+  {
+    "id": "beach-praia-da-calheta-grande",
+    "name": "Praia da Calheta Grande",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.792,
+      "longitude": -24.949
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-sandy-beach",
+    "name": "Sandy Beach",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.813,
+      "longitude": -24.871
+    },
+    "sand": "golden"
+  },
+  {
+    "id": "beach-jon-debra-beach",
+    "name": "Jon Debra Beach",
+    "island": {
+      "name": "São Vicente",
+      "href": "/v1/islands/sao-vicente"
+    },
+    "coordinates": {
+      "latitude": 16.916,
+      "longitude": -24.966
+    },
+    "sand": "dark"
   }
 ]

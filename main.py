@@ -1,5 +1,3 @@
-"""Dev entrypoint: `uv run main.py` (or `uv run uvicorn app.main:app --reload`)."""
-
 import uvicorn
 
 

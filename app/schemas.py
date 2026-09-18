@@ -8,18 +8,11 @@ T = TypeVar("T")
 
 
 class Link(BaseModel):
-    """A HAL-style hypermedia link."""
-
     href: str
     title: str | None = None
 
 
 class Linked(BaseModel):
-    """Mixin for resources that carry a `_links` object.
-
-    Pydantic reserves leading underscores for private attributes, so the field
-    is named `links` and serialised under its `_links` alias.
-    """
 
     links: dict[str, Link] = Field(default_factory=dict, alias="_links")
 
@@ -33,8 +26,9 @@ class Page(Linked, Generic[T]):
     end_of_records: bool = False
     results: list[T]
     sources: list[str] = Field(default_factory=list, description="Upstream datasets used")
-    retrievedAt: str | None = Field(None, description="Timestamp of the upstream query, when known")
-
+    retrieved_at: str | None = Field(
+        None, description="Cached data can be older than the request."
+    )
 
 class Taxonomy(BaseModel):
     kingdom: str | None = None

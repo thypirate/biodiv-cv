@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 import asyncio
-import datetime
 
 from fastapi import APIRouter, HTTPException, Query, Request
 
 from app.links import page_links
 from app.schemas import ConservationStatus, Page, Species, SpeciesDetail
 from app.sources import gbif, wikipedia
+from app.clients import optional
 
 router = APIRouter(prefix="/v1/species", tags=["species"])
 
@@ -29,8 +29,7 @@ async def search(
         results=[gbif.to_species(row) for row in data.get("results", [])],
         sources=["gbif"],
         links=page_links(request, limit=limit, offset=offset, total=data.get("count")),
-        retrievedAt=str(datetime.datetime.now()),
-
+        retrieved_at=data.get("_retrieved_at"),
     )
 
 
@@ -80,10 +79,10 @@ async def _build_detail(key: int, *, with_summary: bool = True) -> SpeciesDetail
     lookup_name = base.canonical_name or base.scientific_name
 
     names, status, count, summary = await asyncio.gather(
-        gbif.vernacular_names(key),
-        gbif.iucn_category(key),
+        optional(gbif.vernacular_names(key)),
+        optional(gbif.iucn_category(key)),
         gbif.occurrence_count(key),
-        wikipedia.summary(lookup_name) if with_summary else _none(),
+        optional(wikipedia.summary(lookup_name)) if with_summary else _none(),
     )
 
     return SpeciesDetail(

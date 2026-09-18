@@ -11,6 +11,8 @@ class Settings(BaseSettings):
     app_name: str = "Cape Verde Biodiversity Open Data API"
     version: str = "0.1.0"
     country_code: str = "CV"
+    repo_url: str = "https://github.com/thypirate/biodiv-cv"
+    user_agent: str = ""
 
     # Upstream base URLs
     gbif_base: str = "https://api.gbif.org/v1"

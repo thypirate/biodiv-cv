@@ -1,11 +1,3 @@
-"""Tiny async TTL cache.
-
-The whole point of this project's v1 is "no infrastructure": no Postgres, no
-Redis. Upstream responses are held in a bounded in-process TTL cache, which is
-enough to keep us inside upstream rate limits and to make repeat requests fast.
-State is per-process and disposable — restart the app and it simply refills.
-"""
-
 from __future__ import annotations
 
 import asyncio
@@ -32,11 +24,6 @@ def _key(prefix: str, args: tuple, kwargs: dict) -> str:
 
 
 def cached(ttl: int | None = None) -> Callable[[Callable[P, Awaitable[T]]], Callable[P, Awaitable[T]]]:
-    """Cache an async function's result for `ttl` seconds.
-
-    Concurrent callers that miss on the same key wait on a shared lock so we
-    only ever have one in-flight request upstream per key.
-    """
 
     def decorator(fn: Callable[P, Awaitable[T]]) -> Callable[P, Awaitable[T]]:
         store: TTLCache = TTLCache(maxsize=settings.cache_maxsize, ttl=ttl or settings.cache_ttl)
@@ -60,7 +47,6 @@ def cached(ttl: int | None = None) -> Callable[[Callable[P, Awaitable[T]]], Call
 
             try:
                 async with lock:
-                    # Another coroutine may have filled it while we waited.
                     try:
                         value = store[key]
                         _stats["hits"] += 1
@@ -72,13 +58,11 @@ def cached(ttl: int | None = None) -> Callable[[Callable[P, Awaitable[T]]], Call
                     store[key] = value
                     return value
             finally:
-                # Drop the lock once nobody holds it, otherwise `locks` gains an
-                # entry for every distinct key and grows for the life of the process.
                 async with guard:
                     if locks.get(key) is lock and not lock.locked():
                         del locks[key]
 
-        wrapper.cache_locks = locks  # type: ignore[attr-defined]  # exposed for tests
+        wrapper.cache_locks = locks
         return wrapper
 
     return decorator

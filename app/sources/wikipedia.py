@@ -1,9 +1,7 @@
-"""Wikipedia REST summaries — plain-language species descriptions."""
-
 from __future__ import annotations
 
 from app.cache import cached
-from app.clients import get_json_optional
+from app.clients import get_json
 from app.config import settings
 from app.schemas import SpeciesSummary
 
@@ -13,7 +11,7 @@ BASE = settings.wikipedia_base
 @cached(ttl=settings.cache_ttl_long)
 async def summary(title: str) -> SpeciesSummary | None:
     slug = title.strip().replace(" ", "_")
-    data = await get_json_optional(f"{BASE}/page/summary/{slug}")
+    data = await get_json(f"{BASE}/page/summary/{slug}", source="Wikipedia")
     if not data or data.get("type") == "disambiguation" or not data.get("extract"):
         return None
     return SpeciesSummary(

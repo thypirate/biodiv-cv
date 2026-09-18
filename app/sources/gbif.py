@@ -1,11 +1,9 @@
-"""GBIF — the backbone of this API. No API key required."""
-
 from __future__ import annotations
 
 from typing import Any
 
 from app.cache import cached
-from app.clients import get_json, get_json_optional
+from app.clients import get_json
 from app.config import settings
 from app.links import occurrence_links, species_links
 from app.schemas import (
@@ -19,7 +17,6 @@ from app.schemas import (
 BASE = settings.gbif_base
 CV = settings.country_code
 
-# GBIF kingdom keys are stable and used to label facet output.
 KINGDOMS = {
     1: "Animalia",
     2: "Archaea",
@@ -44,8 +41,6 @@ def _taxonomy(raw: dict[str, Any]) -> Taxonomy:
     )
 
 
-# Preferred languages for common names, best first. Cape Verde's working
-# languages are Portuguese and Kriolu; English and Spanish are useful fallbacks.
 _LANGS = ("por", "eng", "spa", None)
 
 
@@ -151,14 +146,14 @@ async def species_detail(key: int) -> dict[str, Any] | None:
 
 @cached(ttl=settings.cache_ttl_long)
 async def vernacular_names(key: int) -> list[str]:
-    data = await get_json_optional(f"{BASE}/species/{key}/vernacularNames", params={"limit": 100})
+    data = await get_json(f"{BASE}/species/{key}/vernacularNames", params={"limit": 100})
     return _pick_vernacular((data or {}).get("results", []))[:8]
 
 
 @cached(ttl=settings.cache_ttl_long)
 async def match_name(name: str) -> dict[str, Any] | None:
     """Fuzzy-match a scientific name to a GBIF backbone key."""
-    data = await get_json_optional(f"{BASE}/species/match", params={"name": name, "strict": False})
+    data = await get_json(f"{BASE}/species/match", params={"name": name, "strict": False})
     if not data or not data.get("usageKey"):
         return None
     return data
@@ -166,7 +161,7 @@ async def match_name(name: str) -> dict[str, Any] | None:
 
 @cached(ttl=settings.cache_ttl_long)
 async def iucn_category(key: int) -> ConservationStatus | None:
-    data = await get_json_optional(f"{BASE}/species/{key}/iucnRedListCategory")
+    data = await get_json(f"{BASE}/species/{key}/iucnRedListCategory")
     if not data or not data.get("category"):
         return None
     return ConservationStatus(
@@ -230,7 +225,6 @@ async def facets(fields: list[str], *, facet_limit: int = 12) -> dict[str, list[
 
 @cached()
 async def top_species(limit: int = 20) -> list[dict[str, Any]]:
-    """Most-recorded species in Cape Verde, from the speciesKey facet."""
     data = await get_json(
         f"{BASE}/occurrence/search",
         params={"country": CV, "limit": 0, "facetLimit": limit, "facet": "speciesKey"},
