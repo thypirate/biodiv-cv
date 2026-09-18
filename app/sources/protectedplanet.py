@@ -1,15 +1,9 @@
-"""Protected Planet (WDPA) — optional, token-gated.
-
-Without a token the API falls back to the bundled seed list and labels the
-payload accordingly, so v1 still runs with zero configuration.
-"""
-
 from __future__ import annotations
 
 from typing import Any
 
 from app.cache import cached
-from app.clients import get_json_optional
+from app.clients import get_json
 from app.config import settings
 from app.schemas import Coordinates, ProtectedArea
 
@@ -45,11 +39,11 @@ def _to_area(raw: dict[str, Any]) -> ProtectedArea:
 async def list_areas(limit: int = 50, page: int = 1) -> list[ProtectedArea] | None:
     if not enabled():
         return None
-    data = await get_json_optional(
+    data = await get_json(
         f"{BASE}/protected_areas",
         params={
             "token": settings.protected_planet_token,
-            "country": "CPV",  # ISO-3 for Cape Verde
+            "country": "CPV",
             "per_page": limit,
             "page": page,
         },

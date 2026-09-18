@@ -28,7 +28,6 @@ async def list_beaches() -> dict[str, Any]:
         "total": len(beaches),
         "results": beaches,
         "sources": BEACH_SOURCES,
-        "cache_stats": cache_stats(),
     }
 
 @router.get("/{beach_id}", response_model=Beach, summary="A single beach")
