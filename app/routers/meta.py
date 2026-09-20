@@ -2,35 +2,40 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 
 from app.cache import cache_stats
 from app.config import settings
 from app.data.reference import ISLANDS
 from app.schemas import Island, SourceInfo
 from app.sources import protectedplanet
+from app.rate_limiter import limiter
 
 router = APIRouter(tags=["meta"])
 
 
 @router.get("/health", summary="Liveness probe")
+@limiter.exempt
 async def health() -> dict[str, Any]:
     return {"status": "ok", "version": settings.version, "cache": cache_stats()}
 
 
 @router.get("/v1/islands", response_model=list[Island], summary="The islands of Cape Verde")
-async def islands() -> list[Island]:
+@limiter.limit("120/minute")
+async def islands(request: Request) -> list[Island]:
     return ISLANDS
 
 @router.get("/v1/islands/{island_id}", response_model=Island, summary="A single island of Cape Verde")
-async def island(island_id: str) -> Island:
+@limiter.limit("120/minute")
+async def island(request: Request, island_id: str) -> Island:
     for island in ISLANDS:
         if island.id == island_id:
             return island
     raise HTTPException(status_code=404, detail="Island not found")
 
 @router.get("/v1/sources", response_model=list[SourceInfo], summary="Upstream data sources and licences")
-async def sources() -> list[SourceInfo]:
+@limiter.limit("120/minute")
+async def sources(request: Request) -> list[SourceInfo]:
     return [
         SourceInfo(
             key="gbif",

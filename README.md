@@ -1,18 +1,7 @@
-## Cabo Verde Biodiversidade Open Data API
+## Cabo Verde Biodiversidade Data API
 
 An open API aggregating biodiversity observations, species
 information, conservation status and protected areas for **Cape Verde**.
-
-**v1 is deliberately stateless.** Every request fans out to public upstream APIs, normalises the responses
-into one consistent schema, and caches them in memory for a few minutes.
-
-```
-                      ┌──────────────┐
-             client──>│  API         │──> GBIF                (occurrences, taxonomy, IUCN)
-                      │              │──> iNaturalist         (community observations)
-                      │              │──> Wikipedia           (species descriptions)
-                      └──────────────┘──> Protected Planet    (optional, token-gated)
-```
 
 ## Quick start
 
@@ -21,12 +10,8 @@ uv sync
 uv run main.py           # http://127.0.0.1:8000
 ```
 
-- Portal: <http://127.0.0.1:8000/>
 - Interactive docs: <http://127.0.0.1:8000/docs>
 - OpenAPI schema: <http://127.0.0.1:8000/openapi.json>
-
-No configuration is required. `cp .env.example .env` only if you want to
-override defaults or add a Protected Planet token.
 
 ## Endpoints
 
@@ -52,8 +37,6 @@ override defaults or add a Protected Planet token.
 Species and occurrence responses carry hypermedia `_links` — see
 [Hypermedia (HATEOAS)](#hypermedia-hateoas).
 
-A species profile assembles four upstream calls concurrently:
-
 ```bash
 curl 'http://127.0.0.1:8000/v1/species/resolve?name=Calonectris%20edwardsii'
 ```
@@ -78,8 +61,6 @@ Species and occurrence responses carry a HAL-style `_links` object so a client
 can navigate the API without hardcoding URL templates. Reference collections
 (islands, sources, protected areas, stats) are leaves with nothing to link to,
 so they stay plain.
-
-A species links to everything you can do next with it:
 
 ```json
 "_links": {
@@ -109,4 +90,4 @@ uv run pytest
 
 ## Licence
 
-Licensed under MIT for the code. Data licences are upstream's, not ours.
+Licensed under MIT for the code.

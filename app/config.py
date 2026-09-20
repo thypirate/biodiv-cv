@@ -1,6 +1,5 @@
 from functools import lru_cache
 from typing import Annotated
-
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
@@ -12,7 +11,6 @@ class Settings(BaseSettings):
     version: str = "0.1.0"
     country_code: str = "CV"
     repo_url: str = "https://github.com/thypirate/biodiv-cv"
-    user_agent: str = ""
 
     # Upstream base URLs
     gbif_base: str = "https://api.gbif.org/v1"
@@ -53,6 +51,14 @@ class Settings(BaseSettings):
 
             return json.loads(text)
         return [item.strip() for item in text.split(",") if item.strip()]
+
+    redis_host: str = "localhost"
+    redis_port: int = 6379
+    redis_username: str | None = None
+    redis_pwd: str | None = None
+    redis_db: int = 0
+    redis_enabled: bool = True          # lets tests/CI run without Redis
+    reference_ttl: int | None = None    # None = no expiry for seeded reference data
 
 
 @lru_cache

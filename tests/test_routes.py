@@ -313,3 +313,28 @@ def test_stats_survives_inaturalist_being_down(client, monkeypatch):
     assert body["unavailable_sources"] == ["inaturalist"]
     assert body["sources"] == ["gbif"]
     assert body["by_kingdom"] == [{"kingdom": "Animalia", "count": 159368}]
+
+
+def test_upstream_routes_have_strict_rate_limit(client, monkeypatch):
+    async def no_status(_key):
+        return None
+
+    monkeypatch.setattr(gbif, "iucn_category", no_status)
+    codes = [client.get("/v1/species/1/conservation").status_code for _ in range(21)]
+
+    assert 429 not in codes[:20]
+    assert codes[20] == 429
+
+
+def test_router_routes_get_the_default_rate_limit(client):
+    # Default limits don't reach router routes on this FastAPI version,
+    # so every route needs an explicit @limiter.limit (or @limiter.exempt).
+    codes = [client.get("/v1/islands").status_code for _ in range(121)]
+
+    assert 429 not in codes[:120]
+    assert codes[120] == 429
+
+
+def test_health_is_never_rate_limited(client):
+    codes = {client.get("/health").status_code for _ in range(150)}
+    assert codes == {200}

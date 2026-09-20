@@ -13,17 +13,17 @@ from pathlib import Path
 from app import clients
 from app.config import settings
 from app.routers import beaches, meta, occurrences, protected_areas, species
+from app.redis_db import  init_redis, close_redis
+from app.rate_limiter import limiter
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.middleware import SlowAPIMiddleware
+from slowapi.errors import RateLimitExceeded
+
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 
 DESCRIPTION = """
-Open, stateless API aggregating biodiversity data for **Cape Verde**.
-
-This service stores nothing. Every request is answered by fanning out to public
-upstream APIs (GBIF, iNaturalist, Wikipedia, optionally Protected Planet),
-normalising the responses and caching them in memory for a short while. There is
-no database, no queue and no background worker — one process is the whole system.
-
+Open API aggregating biodiversity data for **Cape Verde**.
 Data belongs to the upstream providers; see `/v1/sources` for licences and
 please cite them in anything you build.
 """
@@ -31,9 +31,12 @@ please cite them in anything you build.
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    await init_redis()
     await clients.startup()
     yield
     await clients.shutdown()
+    await close_redis()
+
 
 
 app = FastAPI(
@@ -44,9 +47,14 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
     openapi_url="/openapi.json",
-    contact={"name": "cv-biodiv-open-data-api", "url": "https://github.com/"},
+    contact={"name": "cv-biodiv-open-data-api", "url": "https://github.com/thypirate/biodiv-cv"},
     license_info={"name": "MIT"},
 )
+
+# App level rate-limiter
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_middleware(SlowAPIMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
@@ -67,8 +75,8 @@ STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 
 
 @app.get("/", include_in_schema=False)
+@limiter.exempt
 async def root():
-    """The portal is a single static page that talks to this same API."""
     index = STATIC_DIR / "index.html"
     if index.is_file():
         return FileResponse(index)

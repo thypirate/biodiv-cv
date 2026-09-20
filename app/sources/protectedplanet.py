@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.cache import cached
+from app.cache import cached, cached_redis
 from app.clients import get_json
 from app.config import settings
 from app.schemas import Coordinates, ProtectedArea
@@ -35,7 +35,7 @@ def _to_area(raw: dict[str, Any]) -> ProtectedArea:
     )
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def list_areas(limit: int = 50, page: int = 1) -> list[ProtectedArea] | None:
     if not enabled():
         return None

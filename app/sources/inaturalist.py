@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.cache import cached
+from app.cache import cached, cached_redis
 from app.clients import get_json
 from app.config import settings
 from app.links import occurrence_links
@@ -53,7 +53,7 @@ def to_occurrence(raw: dict[str, Any]) -> Occurrence:
     return occurrence
 
 
-@cached()
+@cached_redis()
 async def observations(
     *,
     taxon_name: str | None = None,
@@ -80,7 +80,7 @@ async def observations(
     )
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def species_counts(limit: int = 20) -> dict[str, Any]:
     return await get_json(
         f"{BASE}/observations/species_counts",
@@ -89,7 +89,7 @@ async def species_counts(limit: int = 20) -> dict[str, Any]:
     )
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def observation_count() -> int | None:
 
     data = await get_json(

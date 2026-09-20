@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from app.cache import cached
+from app.cache import cached, cached_redis
 from app.clients import get_json
 from app.config import settings
 from app.schemas import SpeciesSummary
@@ -8,7 +8,7 @@ from app.schemas import SpeciesSummary
 BASE = settings.wikipedia_base
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def summary(title: str) -> SpeciesSummary | None:
     slug = title.strip().replace(" ", "_")
     data = await get_json(f"{BASE}/page/summary/{slug}", source="Wikipedia")

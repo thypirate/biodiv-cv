@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 
 from app.data.reference import INGT_NOTE, INGT_SOURCE, protected_areas
 from app.schemas import ProtectedArea
 from app.sources import protectedplanet
 from app.clients import optional
+from app.rate_limiter import limiter
 
 router = APIRouter(prefix="/v1/protected-areas", tags=["protected areas"])
 
@@ -21,7 +22,9 @@ async def _load() -> tuple[list[ProtectedArea], bool]:
 
 
 @router.get("", summary="Protected areas of Cape Verde")
+@limiter.limit("120/minute")
 async def list_areas(
+    request: Request,
     island: str | None = Query(None, description="Filter by island name"),
     designation: str | None = Query(
         None, description="Filter by legal category, e.g. 'Parque Natural'"
@@ -50,7 +53,8 @@ async def list_areas(
 
 
 @router.get("/designations", summary="Legal categories, with counts")
-async def designations() -> list[dict[str, Any]]:
+@limiter.limit("120/minute")
+async def designations(request: Request) -> list[dict[str, Any]]:
     areas, _ = await _load()
     counts: dict[str, dict[str, Any]] = {}
     for area in areas:
@@ -67,7 +71,8 @@ async def designations() -> list[dict[str, Any]]:
 
 
 @router.get("/{area_id}", response_model=ProtectedArea, summary="A single protected area")
-async def get_area(area_id: str) -> ProtectedArea:
+@limiter.limit("120/minute")
+async def get_area(request: Request, area_id: str) -> ProtectedArea:
     areas, _ = await _load()
     for area in areas:
         if area.id == area_id:

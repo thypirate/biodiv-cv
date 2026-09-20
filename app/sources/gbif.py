@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from app.cache import cached
+from app.cache import cached, cached_redis
 from app.clients import get_json
 from app.config import settings
 from app.links import occurrence_links, species_links
@@ -123,7 +123,7 @@ def to_occurrence(raw: dict[str, Any]) -> Occurrence:
     return occurrence
 
 
-@cached()
+@cached_redis()
 async def search_species(q: str, *, rank: str | None, limit: int, offset: int) -> dict[str, Any]:
     return await get_json(
         f"{BASE}/species/search",
@@ -139,18 +139,18 @@ async def search_species(q: str, *, rank: str | None, limit: int, offset: int) -
     )
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def species_detail(key: int) -> dict[str, Any] | None:
     return await get_json(f"{BASE}/species/{key}", source="GBIF")
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def vernacular_names(key: int) -> list[str]:
     data = await get_json(f"{BASE}/species/{key}/vernacularNames", params={"limit": 100})
     return _pick_vernacular((data or {}).get("results", []))[:8]
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def match_name(name: str) -> dict[str, Any] | None:
     """Fuzzy-match a scientific name to a GBIF backbone key."""
     data = await get_json(f"{BASE}/species/match", params={"name": name, "strict": False})
@@ -159,7 +159,7 @@ async def match_name(name: str) -> dict[str, Any] | None:
     return data
 
 
-@cached(ttl=settings.cache_ttl_long)
+@cached_redis(ttl=settings.cache_ttl_long)
 async def iucn_category(key: int) -> ConservationStatus | None:
     data = await get_json(f"{BASE}/species/{key}/iucnRedListCategory")
     if not data or not data.get("category"):
@@ -171,7 +171,7 @@ async def iucn_category(key: int) -> ConservationStatus | None:
     )
 
 
-@cached()
+@cached_redis()
 async def search_occurrences(
     *,
     taxon_key: int | None = None,
@@ -198,7 +198,7 @@ async def search_occurrences(
     )
 
 
-@cached()
+@cached_redis()
 async def occurrence_count(taxon_key: int | None = None) -> int:
     data = await get_json(
         f"{BASE}/occurrence/search",
@@ -208,7 +208,7 @@ async def occurrence_count(taxon_key: int | None = None) -> int:
     return int(data.get("count", 0))
 
 
-@cached()
+@cached_redis()
 async def facets(fields: list[str], *, facet_limit: int = 12) -> dict[str, list[dict[str, Any]]]:
     data = await get_json(
         f"{BASE}/occurrence/search",
@@ -223,7 +223,7 @@ async def facets(fields: list[str], *, facet_limit: int = 12) -> dict[str, list[
     return out
 
 
-@cached()
+@cached_redis()
 async def top_species(limit: int = 20) -> list[dict[str, Any]]:
     data = await get_json(
         f"{BASE}/occurrence/search",

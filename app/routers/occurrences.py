@@ -9,10 +9,12 @@ from app.links import page_links
 from app.schemas import Occurrence, Page
 from app.sources import gbif, inaturalist
 from app.clients import optional
+from app.rate_limiter import limiter
 
 router = APIRouter(prefix="/v1", tags=["occurrences"])
 
 @router.get("/occurrences", response_model=Page[Occurrence], summary="Biodiversity records in Cape Verde")
+@limiter.limit("20/minute")
 async def occurrences(
     request: Request,
     taxon_key: int | None = Query(None, description="GBIF taxon key to filter by"),
@@ -52,7 +54,9 @@ async def occurrences(
 
 
 @router.get("/occurrences/stats", summary="National overview of recorded biodiversity")
-async def stats() -> dict[str, Any]:
+@limiter.limit("20/minute")
+async def stats(request: Request,
+) -> dict[str, Any]:
     facet_fields = ["kingdomKey", "basisOfRecord", "year", "datasetKey"]
     total, facets, inat_total = await asyncio.gather(
         gbif.occurrence_count(),
@@ -84,6 +88,7 @@ async def stats() -> dict[str, Any]:
 
 
 @router.get("/observations", response_model=Page[Occurrence], summary="Community observations (iNaturalist)")
+@limiter.limit("20/minute")
 async def observations(
     request: Request,
     scientific_name: str | None = Query(None, description="iNaturalist taxon name"),

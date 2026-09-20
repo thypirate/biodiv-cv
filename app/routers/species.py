@@ -8,11 +8,13 @@ from app.links import page_links
 from app.schemas import ConservationStatus, Page, Species, SpeciesDetail
 from app.sources import gbif, wikipedia
 from app.clients import optional
+from app.rate_limiter import limiter
 
 router = APIRouter(prefix="/v1/species", tags=["species"])
 
 
 @router.get("/search", response_model=Page[Species], summary="Search species by name")
+@limiter.limit("20/minute")
 async def search(
     request: Request,
     q: str = Query(..., min_length=2, description="Scientific or common name fragment"),
@@ -34,7 +36,9 @@ async def search(
 
 
 @router.get("/top", response_model=list[SpeciesDetail], summary="Most-recorded species in Cape Verde")
-async def top(limit: int = Query(10, ge=1, le=50)) -> list[SpeciesDetail]:
+@limiter.limit("20/minute")
+async def top(request: Request, limit: int = Query(10, ge=1, le=50)) -> list[SpeciesDetail]:
+
     counts = await gbif.top_species(limit)
     details = await asyncio.gather(
         *(_build_detail(row["key"], with_summary=False) for row in counts),
@@ -49,7 +53,9 @@ async def top(limit: int = Query(10, ge=1, le=50)) -> list[SpeciesDetail]:
 
 
 @router.get("/resolve", response_model=SpeciesDetail, summary="Resolve a scientific name to a species")
-async def resolve(name: str = Query(..., min_length=3)) -> SpeciesDetail:
+@limiter.limit("20/minute")
+async def resolve(request: Request,
+name: str = Query(..., min_length=3)) -> SpeciesDetail:
     match = await gbif.match_name(name)
     if not match:
         raise HTTPException(status_code=404, detail=f"No GBIF backbone match for '{name}'")
@@ -57,12 +63,15 @@ async def resolve(name: str = Query(..., min_length=3)) -> SpeciesDetail:
 
 
 @router.get("/{key}", response_model=SpeciesDetail, summary="Species profile")
-async def detail(key: int) -> SpeciesDetail:
+@limiter.limit("20/minute")
+async def detail(request: Request,
+key: int) -> SpeciesDetail:
     return await _build_detail(key)
 
 
 @router.get("/{key}/conservation", response_model=ConservationStatus, summary="IUCN Red List status")
-async def conservation(key: int) -> ConservationStatus:
+@limiter.limit("20/minute")
+async def conservation(request: Request, key: int) -> ConservationStatus:
     status = await gbif.iucn_category(key)
     if status is None:
         raise HTTPException(status_code=404, detail="No IUCN Red List assessment linked to this taxon")
